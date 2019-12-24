@@ -71,8 +71,8 @@ ROOT_URL = http://git.domain.tld/
     ...
     ProxyPreserveHost On
     ProxyRequests off
-    ProxyPass / http://127.0.0.1:3000/
-    ProxyPassReverse / http://127.0.0.1:3000/
+    ProxyPass / http://127.0.0.1:3000
+    ProxyPassReverse / http://127.0.0.1:3000
 </VirtualHost>
 ```
 
@@ -175,6 +175,7 @@ Gogs has some third-party scripts that support running it as a daemon:
 
 - [init.d/centos](https://github.com/gogs/gogs/blob/master/scripts/init/centos/gogs)
 - [init.d/debian](https://github.com/gogs/gogs/blob/master/scripts/init/debian/gogs)
+- [openrc/gentoo](https://gogs.io/docs/installation/configuration_and_run#running-as-daemon-via-init-(eg.-openrc))
 - Systemd in the following section.
 
 #### How do I run Gogs at startup with Systemd?
@@ -242,3 +243,10 @@ The current version of Gogs is written in plain text in the file `templates/.VER
 #### Why Gogs isn't collaborating on its own?
 
 When was your last pull request to Gogs?
+
+
+### Wiki
+
+#### Why can't I create a Wiki page for my new repo?
+
+Is your new repo a mirror? Mirrored repos can't have their own Wiki. If you don't see a green button marked "Create the first page" on the "Welcome to Wiki!" page, check that you didn't create your repo as a mirror. If that's what you intended, you'll have to edit the Wiki on the upstream of your mirror. Otherwise, convert your repo to a regular repository under Settings (down in the Danger Zone section).

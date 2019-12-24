@@ -6,16 +6,109 @@ name: 变更日志
 
 ### 未发布
 
+#### 新增特性
+
+- 允许管理员将用户从仓库的关注列表中移除 [#5803](https://github.com/gogs/gogs/pull/5803)
+- 下载仓库原始内容时设置 `Last-Modified` HTTP 头信息 [#5811](https://github.com/gogs/gogs/issues/5811)
+- 支持 SAS 代码文件的语法高亮（`.r`、`.sas`、`.tex`、`.yaml`）[#5856](https://github.com/gogs/gogs/pull/5856)
+
+#### 功能修改
+
 #### Bug 修复
 
+- [安全] 镜像仓库存在潜在的远程代码执行的威胁 [#5767](https://github.com/gogs/gogs/issues/5767)
+- 禁止个人令牌使用相同的名称 [#5587](https://github.com/gogs/gogs/issues/5587) [#5820](https://github.com/gogs/gogs/pull/5820)
+- 使用联合头像查找（Federated Avatar Lookup）功能时可能会导致程序崩溃 [#5848](https://github.com/gogs/gogs/issues/5848)
+
+#### 其它变更
+
+### 0.11.91 @ 2019-08-11
+
+#### Bug 修复
+
+- MySQL: 无效的连接 [#5532](https://github.com/gogs/gogs/issues/5532)
+- Docker: 弃用的 OpenSSH 选项提示 [#5647](https://github.com/gogs/gogs/issues/5647)
+- 版权年份过时 [#5674](https://github.com/gogs/gogs/issues/5674)
+- [安全] 无效的 API 权限控制 [#5764](https://github.com/gogs/gogs/issues/5764)
+
+#### 功能改进
+
+- 工单的被指派人能够收到邮件更新 [#4220](https://github.com/gogs/gogs/issues/4220)
+- 在邮件中渲染 Markdown [#4552](https://github.com/gogs/gogs/issues/4552)
+- 添加 `rsync` 到 Docker 镜像 [#5773](https://github.com/gogs/gogs/pull/5773)
+
+### 0.11.86 @ 2019-01-30
+
+#### Bug 修复
+
+- Linux 下 Firefox 显示问题 [#5299](https://github.com/gogs/gogs/issues/5299)
+- 使用外部工单系统时出现非预期的工单索引解析错误 [#5551](https://github.com/gogs/gogs/issues/5551)
+- [安全] 远程代码执行和潜在的拒绝服务攻击 [#5558](https://github.com/gogs/gogs/issues/5558)
+
+#### 新增特性
+
+- 支持使用 GitHub（企业版）作为认证源 [#5340](https://github.com/gogs/gogs/pull/5340)
+- 添加获取提交信息（Commit）详情的 API [#5546](https://github.com/gogs/gogs/pull/5546)
+
+#### 其它变更
+
+- 添加新语种支持：越南语
+
+### 0.11.79 @ 2018-12-11
+
+#### Bug 修复
+
+- 在 LDAP 中使用 dn 作为用户查询属性时无效 [#4684](https://github.com/gogs/gogs/issues/4684)
+- LDAP 组验证失败 [#4792](https://github.com/gogs/gogs/issues/4792)
+- Emoji 在 Wiki 中无法显示 [#4869](https://github.com/gogs/gogs/issues/4869)
+- 配置中的日志级别不生效 [#5007](https://github.com/gogs/gogs/issues/5007)
+- 使用非 80 端口访问实例时无法使用 `go get` 命令下载 [#5305](https://github.com/gogs/gogs/issues/5305)
+- 修复 API 路由中潜在的 CSRF 漏洞 [#5355](https://github.com/gogs/gogs/issues/5355)
+- 若分支名称包含 `#` 则在更新保护分支设置后重定向到错误的地址 [#5442](https://github.com/gogs/gogs/issues/5442)
+- 清除标签无法生效 [#5445](https://github.com/gogs/gogs/issues/5445)
+- [安全] 远程代码执行 [#5469](https://github.com/gogs/gogs/issues/5469)
+- 新的分支拉取到镜像仓库后，没有触发推送事件的 Web 钩子 [#5473](https://github.com/gogs/gogs/issues/5473)
+- 过长的工单评论会超出控制面板的宽度 [#5502](https://github.com/gogs/gogs/issues/5502)
+- 协作者 API 没有显示对应权限 [#5538](https://github.com/gogs/gogs/issues/5538)
+- [安全] 登出仅删除客户端 Cookie [#5540](https://github.com/gogs/gogs/issues/5540)
+- [安全] 部分路由需要使用 POST 请求 [#5541](https://github.com/gogs/gogs/issues/5541)
+- [安全] 外部工单系统 URL 格式链接存在 XSS 漏洞 [#5545](https://github.com/gogs/gogs/issues/5545)
+
+#### 功能改进
+
+- 支持使用 URL 查询参数自动填充新工单的标题和内容 [#5302](https://github.com/gogs/gogs/issues/5302)
+- 支持在 Markdown 中使用 Base64 编码的图像 [#5391](https://github.com/gogs/gogs/pull/5391)
+- 允许未登录用户调用仓库信息 API `/repos/:username/:reponame` [#5475](https://github.com/gogs/gogs/issues/5475)
+
+### 0.11.66 @ 2018-09-16
+
+#### Bug 修复
+
+- Web 编辑器提交后无法触发 Git 钩子 [#4338](https://github.com/gogs/gogs/issues/4338)
+- 版本发布附件会由于删除任意评论而被清空 [#4627](https://github.com/gogs/gogs/issues/4627)
 - 可公开访问的 Wiki 或工单的私有仓库无法在搜索结果中显示 [#4973](https://github.com/gogs/gogs/issues/4973)
 - 无法连接 MySQL 8.0 [#5187](https://github.com/gogs/gogs/issues/5187)
 - 删除仓库时未清理 Web 钩子和相关任务 [#5229](https://github.com/gogs/gogs/issues/5229)
+- 恢复备份后时间戳全部变为当前时间 [#5264](https://github.com/gogs/gogs/issues/5264)
+- 合并请求后删除分支没有触发 Web 钩子 [#5331](https://github.com/gogs/gogs/issues/5331)
+- 派生仓库时没有检查用户仓库数量限制 [#5345](https://github.com/gogs/gogs/issues/5345)
+- 使用 PostgreSQL 时无法删除用户 [#5376](https://github.com/gogs/gogs/issues/5376)
+
+#### 新增特性
+
+- 支持为仓库添加头像 [#2340](https://github.com/gogs/gogs/issues/2340)
+- 增加由 Prometheus 提供的基本 Go Runtime 运行信息 [#4141](https://github.com/gogs/gogs/issues/4141)
 
 #### 功能改进
 
 - 默认忽略配置文件的行内注释
+- 浏览文件时剔除文件末的空行 [#5270](https://github.com/gogs/gogs/pull/5270)
+- 支持设定默认的用户认证方式 [#5274](https://github.com/gogs/gogs/issues/5274)
 - 支持添加自定义合并提交描述 [#5276](https://github.com/gogs/gogs/pull/5276)
+
+#### 其它变更
+
+- 安全漏洞修复
 
 ### 0.11.53 @ 2018-06-05
 
@@ -38,7 +131,7 @@ name: 变更日志
 
 - 将导入路径从 "gogits/gogs" 修改为 "gogs/gogs"
 - 安全漏洞修复
-- 添加新语种支持：越南语
+- 添加新语种支持：葡萄牙语
 
 ### 0.11.43 @ 2018-03-31
 
@@ -92,41 +185,4 @@ name: 变更日志
 
 - 添加新语种支持：斯洛伐克语
 
-### 0.11.29 @ 2017-08-15
-
-#### Bug 修复
-
-- 如果仓库曾经为公开的，则变为私有后相关活动信息未被设为私有 [#4414](https://github.com/gogs/gogs/issues/4414)
-- Web 钩子不接受 IPv6 URL [#4428](https://github.com/gogs/gogs/issues/4428)
-- 通过代码提交关闭工单后没有发送邮件提醒 [#4430](https://github.com/gogs/gogs/issues/4430)
-- 探索页面分页不正确 [#4441](https://github.com/gogs/gogs/issues/4441)
-- `/api/v1/repos/search` 返回空值 [#4522](https://github.com/gogs/gogs/issues/4522)
-- 创建合并请求完成后发生错误 [#4572](https://github.com/gogs/gogs/issues/4572)
-
-### 0.11.19 @ 2017-06-10
-
-#### Bug 修复
-
-- 无法使用 go get 子包 [#1878](https://github.com/gogs/gogs/issues/1878)
-- 非首次使用 LDAP 登录无法更新用户为管理员 [#2855](https://github.com/gogs/gogs/issues/2855)
-- 使用 PAM 登录时发生错误 [#4216](https://github.com/gogs/gogs/issues/4216)
-- PostgreSQL 恢复备份后出现错误 `unique constraint violation` [#4357](https://github.com/gogs/gogs/issues/4357)
-- IPython notebook 的图片无法显示 [#4366](https://github.com/gogs/gogs/issues/4366)
-- 编辑文件预览时无法正确处理图片相对链接 [#4368](https://github.com/gogs/gogs/issues/4368)
-- 提交历史页面无法渲染 Emoji [#4439](https://github.com/gogs/gogs/issues/4439)
-- 查看包含文件权限更改的单个提交时 CPU 异常高 [#4475](https://github.com/gogs/gogs/issues/4475)
-- 无法修改协作者的权限 [#4512](https://github.com/gogs/gogs/issues/4512)
-
-#### 新增特性
-
-- 支持两步验证登录 [#945](https://github.com/gogs/gogs/issues/945)
-- 支持 LDAP 登录时验证组成员身份 [#4398](https://github.com/gogs/gogs/pull/4398)
-
-#### 功能改进
-
-- 安装页面检查 SMTP 地址中是否包含端口号 [#2243](https://github.com/gogs/gogs/issues/2243)
-- 镜像仓库没有拉取新代码提交时不更新最后更新时间 [#4341](https://github.com/gogs/gogs/issues/4341)
-- 支持 IPython Notebook 形式的 README [#4367](https://github.com/gogs/gogs/issues/4367)
-- 支持自定义 TLS 相关配置 [#4450](https://github.com/gogs/gogs/issues/4450)
-
-**更早的变更日志可以在 [GitHub](https://github.com/gogs/gogs/releases?after=v0.11.19) 上找到。**
+**更早的变更日志可以在 [GitHub](https://github.com/gogs/gogs/releases?after=v0.11.33) 上找到。**

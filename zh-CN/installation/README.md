@@ -11,12 +11,13 @@ name: 下载安装
     - [TiDB](https://github.com/pingcap/tidb)（实验性支持，使用 MySQL 协议连接）
     - 或者 **什么都不安装** 直接使用 SQLite3
 - [git](http://git-scm.com/)（bash）：
-    - 服务端和客户端均需版本 >= 1.7.1
+    - 服务端和客户端均需版本 >= 1.8.3
     - Windows 系统建议使用最新版
 - SSH 服务器：
     - **如果您只使用 HTTP/HTTPS 的话请忽略此项**
     - 如果您选择在 Windows 系统使用内置 SSH 服务器，请确保添加 `ssh-keygen` 到您的 `%PATH%` 环境变量中
     - 推荐 Windows 系统使用 [Cygwin OpenSSH](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm) 或 [Copssh](https://www.itefix.net/copssh)
+    - Windows 系统 请确保 Bash 是默认的 Shell 程序，而不是 PowerShell
 
 ### 安装数据库
 

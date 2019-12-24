@@ -8,7 +8,7 @@ name: aus Quelldateien
 
 ### Allgemein
 
-- [Go Programming Language](http://golang.org): Version >= 1.6
+- [Go Programming Language](http://golang.org): Version >= 1.8
 
 Wir erstellen einen neuen Benutzer mit dem Namen `git` und installieren alles unter diesem Benutzer:
 
@@ -109,7 +109,7 @@ Einige Dinge sind nicht automatisch bei Gogs mit dabei, du musst Gogs mit den en
 
 Verfügbare Build-Tags sind:
 
-- `sqlite3`/`tidb`: SQLite3/TiDB-Datenbank-Unterstützung
+- `sqlite`/`tidb`: SQLite3/TiDB-Datenbank-Unterstützung
 - `pam`: PAM-Authentifizierungs-Support
 - `cert`: Unterstützung für selbst-signierte Zertifikate
 - `miniwinsvc`: Eingebauter Windows Service Support (alternativ NSSM nutzen um den Service zu erstellen)

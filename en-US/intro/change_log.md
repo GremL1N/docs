@@ -6,16 +6,109 @@ name: Changelog
 
 ### Unreleased
 
+#### Added
+
+- Allow admin to remove observers from the repository [#5803](https://github.com/gogs/gogs/pull/5803)
+- Use `Last-Modified` HTTP header for raw files [#5811](https://github.com/gogs/gogs/issues/5811)
+- Support syntax highlighting for SAS code files (`.r`, `.sas`, `.tex`, `.yaml`) [#5856](https://github.com/gogs/gogs/pull/5856)
+
+#### Changed
+
+#### Fixed
+
+- [Security] Potential RCE on mirror repositories [#5767](https://github.com/gogs/gogs/issues/5767)
+- Disallow multiple tokens with same name [#5587](https://github.com/gogs/gogs/issues/5587) [#5820](https://github.com/gogs/gogs/pull/5820)
+- Enable Federated Avatar Lookup could cause server to crash [#5848](https://github.com/gogs/gogs/issues/5848)
+
+#### Others
+
+### 0.11.91 @ 2019-08-11
+
 #### Bug fixes
 
+- MySQL: invalid connection [#5532](https://github.com/gogs/gogs/issues/5532)
+- Docker: Deprecation Notice OpenSSH [#5647](https://github.com/gogs/gogs/issues/5647)
+- Copyright is behind the times [#5674](https://github.com/gogs/gogs/issues/5674)
+- [Security] Incorrect API access control [#5764](https://github.com/gogs/gogs/issues/5764)
+
+#### Improvements
+
+- Assignee receives email updates of issue thread [#4220](https://github.com/gogs/gogs/issues/4220)
+- Render Markdown in emails [#4552](https://github.com/gogs/gogs/issues/4552)
+- Add `rsync` to the Docker image [#5773](https://github.com/gogs/gogs/pull/5773)
+
+### 0.11.86 @ 2019-01-30
+
+#### Bug fixes
+
+- Layout misalignment in Firefox for Linux [#5299](https://github.com/gogs/gogs/issues/5299)
+- Unexpected issue index parsing error while using external issue tracker [#5551](https://github.com/gogs/gogs/issues/5551)
+- [Security] Remote Code execution or/and Denial of Service [#5558](https://github.com/gogs/gogs/issues/5558)
+
+#### Features
+
+- Support GitHub (Enterprise) authentication source [#5340](https://github.com/gogs/gogs/pull/5340)
+- Add API endpoint to get commit details by SHA [#5546](https://github.com/gogs/gogs/pull/5546)
+
+#### Others
+
+- Add new languages support: Portuguese
+
+### 0.11.79 @ 2018-12-11
+
+#### Bug fixes
+
+- LDAP group verification doesn't work when using 'dn' as user attribute [#4684](https://github.com/gogs/gogs/issues/4684)
+- LDAP group verification fails [#4792](https://github.com/gogs/gogs/issues/4792)
+- Emoji's do not work in wiki [#4869](https://github.com/gogs/gogs/issues/4869)
+- Log level not applied from configuration [#5007](https://github.com/gogs/gogs/issues/5007)
+- Not able to go get a repository with non-80 port [#5305](https://github.com/gogs/gogs/issues/5305)
+- Fix critical CSRF vulnerabilities on API routes [#5355](https://github.com/gogs/gogs/issues/5355)
+- Wrong redirect after updated protect branch setting whose name contains `#` [#5442](https://github.com/gogs/gogs/issues/5442)
+- Clear labels not working [#5445](https://github.com/gogs/gogs/issues/5445)
+- [Security] Remote command execution [#5469](https://github.com/gogs/gogs/issues/5469)
+- Push event webhook is not triggered when new branch fetched to mirror repository [#5473](https://github.com/gogs/gogs/issues/5473)
+- Large issue comment exceeds dashboard section [#5502](https://github.com/gogs/gogs/issues/5502)
+- List collaborator API does not contain permission information [#5538](https://github.com/gogs/gogs/issues/5538)
+- [Security] Log out only deletes browser cookies [#5540](https://github.com/gogs/gogs/issues/5540)
+- [Security] Some routes need to be POST [#5541](https://github.com/gogs/gogs/issues/5541)
+- [Security] Stored XSS in external issue tracker URL format [#5545](https://github.com/gogs/gogs/issues/5545)
+
+#### Improvements
+
+- Support prefilling the title and body of new issues using query parameters [#5302](https://github.com/gogs/gogs/issues/5302)
+- Support data URL of base64 encoded images in Markdown [#5391](https://github.com/gogs/gogs/pull/5391)
+- Allow non logged in users to call repository information API `/repos/:username/:reponame` [#5475](https://github.com/gogs/gogs/issues/5475)
+
+### 0.11.66 @ 2018-09-16
+
+#### Bug fixes
+
+- Web editor doesn't execute hooks after commit [#4338](https://github.com/gogs/gogs/issues/4338)
+- Release attachments are deleted when delete any random comment [#4627](https://github.com/gogs/gogs/issues/4627)
 - Private repository with public wiki or issue does not show in search result [#4973](https://github.com/gogs/gogs/issues/4973)
 - Cannot start with MySQL 8.0 [#5187](https://github.com/gogs/gogs/issues/5187)
 - Webhook and its tasks are not cleaned up when delete repository [#5229](https://github.com/gogs/gogs/issues/5229)
+- Time set to current after restored from backup [#5264](https://github.com/gogs/gogs/issues/5264)
+- Delete branch after merged pull request does no trigger webhook [#5331](https://github.com/gogs/gogs/issues/5331)
+- Fork repository does not check of the limit of users [#5345](https://github.com/gogs/gogs/issues/5345)
+- Unable to delete user with PostgreSQL [#5376](https://github.com/gogs/gogs/issues/5376)
+
+#### Features
+
+- Able to add avatar for repository [#2340](https://github.com/gogs/gogs/issues/2340)
+- Add basic Go runtime metrics provided by Prometheus [#4141](https://github.com/gogs/gogs/issues/4141)
 
 #### Improvements
 
 - Ignore configuration inline comment by default
+- Add deletion of an empty line at the end of file in file view [#5270](https://github.com/gogs/gogs/pull/5270)
+- Able to set default authentication method for login [#5274](https://github.com/gogs/gogs/issues/5274)
 - Able to add custom merge commit description [#5276](https://github.com/gogs/gogs/pull/5276)
+
+#### Others
+
+- Security fixes
 
 ### 0.11.53 @ 2018-06-05
 
@@ -92,41 +185,4 @@ name: Changelog
 
 - Add new language support: Slovak
 
-### 0.11.29 @ 2017-08-15
-
-#### Bug fixes
-
-- Private repository activity shown in "Public activity" tab, if the repository was once public [#4414](https://github.com/gogs/gogs/issues/4414)
-- Webhooks refuse IPv6 URLs as invalid [#4428](https://github.com/gogs/gogs/issues/4428)
-- No email notification if issue closed by commit [#4430](https://github.com/gogs/gogs/issues/4430)
-- Explore page incorrect paging [#4441](https://github.com/gogs/gogs/issues/4441)
-- `/api/v1/repos/search` returns empty values [#4522](https://github.com/gogs/gogs/issues/4522)
-- Panic after created a pull request [#4572](https://github.com/gogs/gogs/issues/4572)
-
-### 0.11.19 @ 2017-06-10
-
-#### Bug fixes
-
-- Unable to go get subpkg [#1878](https://github.com/gogs/gogs/issues/1878)
-- Does not set as admin after first LDAP login [#2855](https://github.com/gogs/gogs/issues/2855)
-- Panic when login via PAM [#4216](https://github.com/gogs/gogs/issues/4216)
-- Unique constraint violation after backup restored for PostgreSQL [#4357](https://github.com/gogs/gogs/issues/4357)
-- Images in IPython notebook are not displayed [#4366](https://github.com/gogs/gogs/issues/4366)
-- Broken relative path for image link in edit file preview [#4368](https://github.com/gogs/gogs/issues/4368)
-- Emoji not rendered on commits view [#4439](https://github.com/gogs/gogs/issues/4439)
-- High CPU when view single commit contains file mode change [#4475](https://github.com/gogs/gogs/issues/4475)
-- Cannot change permissions of collaborators [#4512](https://github.com/gogs/gogs/issues/4512)
-
-#### Features
-
-- Support two-factor authentication [#945](https://github.com/gogs/gogs/issues/945)
-- Support filter by group membership for LDAP [#4398](https://github.com/gogs/gogs/pull/4398)
-
-#### Improvements
-
-- Installation checks port for SMTP host [#2243](https://github.com/gogs/gogs/issues/2243)
-- Remain updated time unchanged if no new commits fetched for mirrors [#4341](https://github.com/gogs/gogs/issues/4341)
-- Support IPython notebook as README [#4367](https://github.com/gogs/gogs/issues/4367)
-- Configurable TLS Support [#4450](https://github.com/gogs/gogs/issues/4450)
-
-**Older change logs can be found on [GitHub](https://github.com/gogs/gogs/releases?after=v0.11.19).**
+**Older change logs can be found on [GitHub](https://github.com/gogs/gogs/releases?after=v0.11.33).**

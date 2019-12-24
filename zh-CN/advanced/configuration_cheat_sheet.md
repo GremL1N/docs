@@ -8,7 +8,7 @@ name: 配置文件手册
 
 请记住，任何修改都是发生在 `custom/conf/app.ini` 自定义配置文件中，该文件的具体位置与您的设置有关。
 
-完整的默认设置可以通过 [app.ini](https://github.com/gogs/gogs/blob/master/conf/app.ini) 文件查看。如果您看到类似 `%(X)s` 字符，这是由 [ini](https://github.com/go-ini/ini/tree/v1#recursive-values) 提供的递归取值的特性。
+完整的默认设置可以通过 [app.ini](https://github.com/gogs/gogs/blob/master/conf/app.ini) 文件查看。如果您看到类似 `%(X)s` 字符，这是由 [ini](https://ini.unknwon.io/docs/howto/work_with_values#recursive-values) 提供的递归取值的特性。
 
 ### 概览
 
@@ -61,6 +61,7 @@ name: 配置文件手册
 `PREFERRED_LICENSES`|建议用户首选的授权类型
 `DISABLE_HTTP_GIT`|激活该选项来禁止用户通过 HTTP 对 Git 仓库进行交互操作，即用户只能通过 SSH 操作
 `ENABLE_LOCAL_PATH_MIGRATION`|激活该选项来启用本地路径迁移仓库功能。启动后默认只有管理员可以使用，普通用户必须经由管理员授权
+`ENABLE_RAW_FILE_RENDER_MODE`|激活该选项来启用在查看原始数据时对页面进行真实渲染，例如渲染实际的 HTML 页面，有潜在安全隐患
 
 #### 仓库 - 编辑器 (`repository.editor`)
 
@@ -158,7 +159,8 @@ name: 配置文件手册
 
 名称|描述
 ----|----
-`TYPES`|启动的 Web 钩子类型，可以是 `gogs`、`slack` 或 `discord`
+`TYPES`|启动的 Web 钩子类型，可以是 `gogs`、`slack`、`discord`或`dingtalk`
+`QUEUE_LENGTH`|Web钩子队列长度，如果发现部分Webhook未能成功触发，可考虑增加该值
 `DELIVER_TIMEOUT`|发送通知的超时时间，以秒为单位
 `SKIP_TLS_VERIFY`|指示是否允许向具有非信任证书的地址发送通知
 `PAGING_NUM`|Web 钩子历史页面每页显示记录条数
@@ -242,7 +244,7 @@ name: 配置文件手册
 
 名称|描述
 ----|----
-`LEVEL`|控制台日志级别，留空则继承父值
+`LEVEL`|文件日志级别，留空则继承父值
 `LOG_ROTATE`|激活该选项以启用日志文件自转
 `DAILY_ROTATE`|激活该选项以进行日常自转
 `MAX_SIZE_SHIFT`|自转需要达到的最大文件体积，使用位左移，默认为 28 即 1 << 28，表示 256MB
@@ -253,8 +255,16 @@ name: 配置文件手册
 
 名称|描述
 ----|----
-`LEVEL`|控制台日志级别，留空则继承父值
+`LEVEL`|Slack 日志级别，留空则继承父值
 `URL`|Slack Web 钩子 URL
+
+#### 日志 - Discord (`log.discord`)
+
+名称|描述
+----|-----------
+`LEVEL`|Discord 日志级别，留空则继承父值
+`URL`|Discord Web 钩子 URL
+`USERNAME`|在 Web 钩子中显示的用户名
 
 ### Cron (`cron`)
 
@@ -330,6 +340,15 @@ name: 配置文件手册
 `REPO_PAGING_NUM`|仓库管理页面每页显示记录条数
 `NOTICE_PAGING_NUM`|系统提示管理页面每页显示记录条数
 `ORG_PAGING_NUM`|组织管理页面每页显示记录条数
+
+#### Prometheus (`prometheus`)
+
+名称|描述
+----|-----------
+`ENABLED`|激活该选项以启用 Prometheus 监控信息，默认为 `true`
+`ENABLE_BASIC_AUTH`|激活该选项以启用 HTTP 基本认证保护监控信息数据，默认为 `false`
+`BASIC_AUTH_USERNAME`|HTTP 基本认证的用户名
+`BASIC_AUTH_PASSWORD`|HTTP 基本认证的密码
 
 ### 其他 (`other`)
 
